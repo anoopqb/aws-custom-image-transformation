@@ -1,0 +1,44 @@
+# compiled output
+**/dist
+**/global-s3-assets
+**/regional-s3-assets
+**/staging
+**/open-source
+**/.zip
+**/tmp
+**/out-tsc
+.scannerwork
+deployment/ecr
+deployment/launch-wizard-assets
+deployment/ecr_image_tags.json
+
+# dependencies
+**/node_modules
+**/modules
+
+# test assets
+**/coverage
+**/coverage-reports
+**/.nyc_output
+**/mock-*
+
+# misc
+**/npm-debug.log
+**/testem.log
+**/.vscode/settings.json
+demo-ui-config.js
+.temp_redpencil
+bom.json
+
+# System Files
+**/.DS_Store
+**/.vscode
+**/.idea
+build
+dist
+
+# amazon q
+.q
+
+# Cypress artifacts
+source/admin-ui/src/e2e-tests/artifacts/
