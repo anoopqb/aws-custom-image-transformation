@@ -255,7 +255,14 @@ export class ImageHandler {
       if (!resize.fit) resize.fit = ImageFitTypes.INSIDE;
     }
 
-    if (edits.focalX !== undefined && edits.focalY !== undefined && resize.width && resize.height) {
+    if (
+      edits.focalX !== undefined &&
+      edits.focalX !== null &&
+      edits.focalY !== undefined &&
+      edits.focalY !== null &&
+      resize.width &&
+      resize.height
+    ) {
       const metadata = await originalImage.metadata();
       const origW = metadata.width;
       const origH = metadata.height;

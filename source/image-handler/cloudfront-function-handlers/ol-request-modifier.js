@@ -15,7 +15,7 @@ function processQueryParams(querystring) {
         return [];
     }
 
-    const ALLOWED_PARAMS = ['signature', 'expires', 'format', 'fit', 'width', 'height', 'rotate', 'flip', 'flop', 'grayscale'];
+    const ALLOWED_PARAMS = ['signature', 'expires', 'format', 'fit', 'width', 'height', 'aspectRatio', 'focalX', 'focalY', 'rotate', 'flip', 'flop', 'grayscale'];
     const OL_PARAMS = {'signature': 'ol-signature', 'expires': 'ol-expires'};
     
     let qs = [];

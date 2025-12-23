@@ -99,10 +99,11 @@ function zeroStringToNullInt(input: string): number | null {
 }
 
 /**
- * Converts a string to a float value
+ * Converts a string to a float value, or null if the string is empty
  * @param input The input string to be converted
- * @returns The float value of the input string
+ * @returns The float value of the input string, or null if the input is an empty string
  */
-function stringToFloat(input: string): number {
-  return parseFloat(input);
+function stringToFloat(input: string): number | null {
+  const float = parseFloat(input);
+  return isNaN(float) ? null : float;
 }

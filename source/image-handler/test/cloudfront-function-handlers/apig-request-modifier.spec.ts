@@ -18,8 +18,8 @@ describe("index", () => {
       },
       {
         // Should filter invalid params
-        input: { key2: { value: "value2" }, format: { value: "value3" } },
-        expected: "format=value3",
+        input: { key2: { value: "value2" }, format: { value: "value3" }, aspectRatio: { value: "16:9" }, focalX: { value: "0.5" } },
+        expected: "aspectRatio=16:9&focalX=0.5&format=value3",
       },
       {
         // Multi value keys use the last option

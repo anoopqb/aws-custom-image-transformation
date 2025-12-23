@@ -103,5 +103,34 @@ describe("focalPoint", () => {
     
     extractSpy.mockRestore();
   });
+
+  it("Should not apply focal point cropping if focalX or focalY is null", async () => {
+    // Arrange
+    const originalImage = await sharp({
+      create: {
+        width: 10,
+        height: 10,
+        channels: 3,
+        background: { r: 255, g: 255, b: 255 }
+      }
+    }).png().toBuffer();
+    
+    const image = sharp(originalImage, { failOnError: false }).withMetadata();
+    const edits: ImageEdits = { 
+      resize: { width: 5, height: 5 },
+      focalX: null,
+      focalY: 0.5
+    };
+
+    // Act
+    const imageHandler = new ImageHandler(s3Client, rekognitionClient);
+    const extractSpy = jest.spyOn(sharp.prototype, 'extract');
+    await imageHandler.applyEdits(image, edits, false);
+
+    // Assert
+    expect(extractSpy).not.toHaveBeenCalled();
+    
+    extractSpy.mockRestore();
+  });
 });
 

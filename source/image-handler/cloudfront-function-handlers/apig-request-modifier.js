@@ -4,7 +4,7 @@
 
 function handler(event) {
     // Normalize accept header to only include values used on the backend
-    if(event.request.headers && event.request.headers.accept && event.request.headers.accept.value) {
+    if (event.request.headers && event.request.headers.accept && event.request.headers.accept.value) {
         event.request.headers.accept.value = event.request.headers.accept.value.indexOf("image/webp") > -1 ? "image/webp" : ""
     }
     event.request.querystring = processQueryParams(event.request.querystring).join('&')
@@ -16,8 +16,8 @@ function processQueryParams(querystring) {
         return [];
     }
 
-    const ALLOWED_PARAMS = ['signature', 'expires', 'format', 'fit', 'width', 'height', 'rotate', 'flip', 'flop', 'grayscale'];
-    
+    const ALLOWED_PARAMS = ['signature', 'expires', 'format', 'fit', 'width', 'height', 'aspectRatio', 'focalX', 'focalY', 'rotate', 'flip', 'flop', 'grayscale'];
+
     let qs = [];
     for (const key in querystring) {
         if (!ALLOWED_PARAMS.includes(key)) {
